@@ -1,0 +1,23 @@
+targetTemplates:
+  include-curl-ws:
+    settings:
+      HEADER_SEARCH_PATHS:
+        - ${SRCROOT}/curl-ws/macos
+  link-curl-ws:
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: Security.framework
+      - sdk: SystemConfiguration.framework
+    settings:
+      OTHER_LDFLAGS:
+        - ${SRCROOT}/curl-ws/macos/libcurl-ws.a
+        - -lnghttp2
+        - -lidn2
+        - -lrtmp
+        - -lssl
+        - -lcrypto
+        - -lssh2
+        - -lgssapi_krb5
+        - -lresolv
+        - -lldap
+        - -lz
